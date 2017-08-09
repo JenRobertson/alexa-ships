@@ -79,28 +79,31 @@ function stations_ships(){
     return function () {
 
 
-        const shipSlot = this.event.request.intent.slots.ship.value.toLowerCase();
-        const stationSlot = this.event.request.intent.slots.station.value.toLowerCase();
+        // const shipSlot = this.event.request.intent.slots.ship.value.toLowerCase();
+        // const stationSlot = this.event.request.intent.slots.station.value.toLowerCase();
 
 
 
 //shipSlot.value + stationSlot.value
-        this.emit(':ask', messages.STATIONS_SHIPS[shipSlot][stationSlot]);
+        //this.emit(':ask', messages.STATIONS_SHIPS[shipSlot][stationSlot]);
 
+        const shipSlot = this.event.request.intent.slots.ship;
+        const stationSlot = this.event.request.intent.slots.station;
 
-        // let shipName;
-        // let stationName;
-        // if (shipSlot && shipSlot.value) {
-        //     shipName = shipSlot.value.toLowerCase();
-        // }
+        let shipName;
+        let stationName;
+        if (shipSlot && shipSlot.value) {
+            shipName = shipSlot.value.toLowerCase();
+        }
 
-        // if (stationSlot && stationSlot.value) {
-        //     stationName = stationSlot.value.toLowerCase();
-        // }
+        if (stationSlot && stationSlot.value) {
+            stationName = stationSlot.value.toLowerCase();
+        }
 
-        // const cardTitle = messages.DISPLAY_CARD_TITLE(messages.SKILL_NAME, shipName);//needs s
-        // const responses = messages.responseFileName.toUpperCase();
-        // const response = responses[shipName][stationName];
+        const cardTitle = `${messages.SKILL_NAME} - info about ${shipName}`;//needs s`
+        const response = messages.STATIONS_SHIPS[shipName][stationName];
+
+        this.emit(':tellWithCard', response, cardTitle, response);
 
         // if (response) {
         //     this.attributes.speechOutput = response;
