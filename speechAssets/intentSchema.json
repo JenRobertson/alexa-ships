@@ -1,0 +1,29 @@
+{
+  "intents": [
+    {
+    "intent": "StationsIntent",
+      "slots": [
+        {
+          "name": "ship",
+          "type": "LIST_OF_SHIPS"
+        },
+        {
+          "name": "station",
+          "type": "LIST_OF_STATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

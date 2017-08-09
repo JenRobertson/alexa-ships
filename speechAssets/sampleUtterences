@@ -1,0 +1,12 @@
+PiratesIntent how many pirates can a {ship} hold
+PiratesIntent how many pirates can go on a {ship}
+PiratesIntent how many players can a {ship} hold
+PiratesIntent how many players can go on a {ship}
+PiratesIntent how many people can a {ship} hold
+PiratesIntent how many people can go on a {ship}
+
+SailStationsIntent how many {station} stations are on a {ship}
+SailStationsIntent how many {station} stations there are on a {ship}
+SailStationsIntent how many {station} places there are on a {ship}
+
+
