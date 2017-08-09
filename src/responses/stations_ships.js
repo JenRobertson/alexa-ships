@@ -10,8 +10,8 @@ module.exports = {
         'carpentry':'2',
         'carp':'2',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'3',
+        'sailing':'3',
 
         'gun':'1',
         'gunning':'1',
@@ -24,14 +24,14 @@ module.exports = {
         'bilge':'2',
         'bilging':'2',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'3',
+        'carp':'3',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'5',
+        'sailing':'5',
 
-        'gun':'1',
-        'gunning':'1',
+        'gun':'2',
+        'gunning':'2',
 
         'nav':'1',
         'navving':'1',
@@ -41,11 +41,11 @@ module.exports = {
         'bilge':'2',
         'bilging':'2',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'3',
+        'carp':'3',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'5',
+        'sailing':'5',
 
         'gun':'1',
         'gunning':'1',
@@ -58,11 +58,11 @@ module.exports = {
         'bilge':'2',
         'bilging':'2',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'3',
+        'carp':'3',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'5',
+        'sailing':'5',
 
         'gun':'1',
         'gunning':'1',
@@ -72,153 +72,153 @@ module.exports = {
         'navigation':'1',
       },
       'longship': {
-        'bilge':'2',
-        'bilging':'2',
+        'bilge':'3',
+        'bilging':'3',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'3',
+        'carp':'3',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'5',
+        'sailing':'5',
 
-        'gun':'1',
-        'gunning':'1',
+        'gun':'3',
+        'gunning':'3',
 
         'nav':'1',
         'navving':'1',
         'navigation':'1',
       },
       'baghlah': {
-        'bilge':'2',
-        'bilging':'2',
+        'bilge':'4',
+        'bilging':'4',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'4',
+        'carp':'4',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'6',
+        'sailing':'6',
 
-        'gun':'1',
-        'gunning':'1',
+        'gun':'3',
+        'gunning':'3',
 
         'nav':'1',
         'navving':'1',
         'navigation':'1',
       },
       'merchant': {
-        'bilge':'2',
-        'bilging':'2',
+        'bilge':'6',
+        'bilging':'6',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'9',
+        'carp':'9',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'6',
+        'sailing':'6',
 
-        'gun':'1',
-        'gunning':'1',
+        'gun':'2',
+        'gunning':'2',
 
         'nav':'1',
         'navving':'1',
         'navigation':'1',
       },
       'junk': {
-        'bilge':'2',
-        'bilging':'2',
+        'bilge':'4',
+        'bilging':'4',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'4',
+        'carp':'4',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'6',
+        'sailing':'6',
 
-        'gun':'1',
-        'gunning':'1',
+        'gun':'3',
+        'gunning':'3',
 
         'nav':'1',
         'navving':'1',
         'navigation':'1',
       },
       'war brig': {
-        'bilge':'2',
-        'bilging':'2',
+        'bilge':'4',
+        'bilging':'4',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'6',
+        'carp':'6',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'9',
+        'sailing':'9',
 
-        'gun':'1',
-        'gunning':'1',
+        'gun':'4',
+        'gunning':'4',
 
         'nav':'1',
         'navving':'1',
         'navigation':'1',
       },
       'merchant galleon': {
-        'bilge':'2',
-        'bilging':'2',
+        'bilge':'14',
+        'bilging':'14',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'14',
+        'carp':'14',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'9',
+        'sailing':'9',
 
-        'gun':'1',
-        'gunning':'1',
+        'gun':'3',
+        'gunning':'3',
 
         'nav':'1',
         'navving':'1',
         'navigation':'1',
       },
       'xebec': {
-        'bilge':'2',
-        'bilging':'2',
+        'bilge':'8',
+        'bilging':'8',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'9',
+        'carp':'9',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'14',
+        'sailing':'14',
 
-        'gun':'1',
-        'gunning':'1',
+        'gun':'6',
+        'gunning':'6',
 
         'nav':'1',
         'navving':'1',
         'navigation':'1',
       },
       'war frigate': {
-        'bilge':'2',
-        'bilging':'2',
+        'bilge':'12',
+        'bilging':'12',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'18',
+        'carp':'18',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'18',
+        'sailing':'18',
 
-        'gun':'1',
-        'gunning':'1',
+        'gun':'6',
+        'gunning':'6',
 
         'nav':'1',
         'navving':'1',
         'navigation':'1',
       },
       'grand frigate': {
-        'bilge':'2',
-        'bilging':'2',
+        'bilge':'16',
+        'bilging':'16',
 
-        'carpentry':'2',
-        'carp':'2',
+        'carpentry':'24',
+        'carp':'24',
 
-        'sail':'2',
-        'sailing':'2',
+        'sail':'30',
+        'sailing':'30',
 
-        'gun':'1',
-        'gunning':'1',
+        'gun':'6',
+        'gunning':'6',
 
         'nav':'1',
         'navving':'1',

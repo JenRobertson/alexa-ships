@@ -100,10 +100,24 @@ function stations_ships(){
             stationName = stationSlot.value.toLowerCase();
         }
 
-        const cardTitle = `${messages.SKILL_NAME} - info about ${shipName}`;//needs s`
-        const response = messages.STATIONS_SHIPS[shipName][stationName];
+        if (STATIONS_SHIPS[shipName] && STATIONS_SHIPS[shipName][stationName){
+            const number = messages.STATIONS_SHIPS[shipName][stationName];
+            const cardTitle = `${messages.SKILL_NAME} - info about ${shipName}`;
+            const response = `A ${shipName} has ${number} ${stationName} stations.`;
+            this.emit(':tellWithCard', response, cardTitle, response);
+        }
 
-        this.emit(':tellWithCard', response, cardTitle, response);
+        else {
+
+            this.emit(':ask', 'I am not sure. What else can I help you with?');
+
+        }
+
+    
+       
+
+
+
 
         // if (response) {
         //     this.attributes.speechOutput = response;
