@@ -11,9 +11,9 @@
 'use strict';
 
 const Alexa = require('alexa-sdk');
-const stations = require('./responses/stations');
+const stations_ships_responses_file = require('./responses/stations_ships');
 
-const APP_ID = 'amzn1.ask.skill.1a184836-9acf-46bd-9e7b-0b6b9cc730c3';
+const APP_ID = 'amzn1.ask.skill.2e4ac15a-094b-4049-ae91-f08d166086b5';
 
 
 const messages = {
@@ -25,13 +25,13 @@ const messages = {
     HELP_REPROMT: "You can say things like, how many bilge stations are there on a sloop?, or you can say exit...Now, what can I help you with?",
     STOP_MESSAGE: 'Goodbye!',
 
-    STATIONS: stations.stations,
-    STATIONS_REPEAT_MESSAGE: 'Try saying repeat.',
-    STATIONS_NOT_FOUND_MESSAGE: "I\'m sorry, I dont know about ",
-    STATIONS_NOT_FOUND_WITH_ITEM_NAME: '%s ',
-    STATIONS_NOT_FOUND_WITHOUT_ITEM_NAME: 'that',
-    STATIONS_NOT_FOUND_REPROMPT: '. What else can I help with?'
-}
+    STATIONS_SHIPS: stations_ships_responses_file.RESPONSES,
+    STATIONS_SHIPS_REPEAT_MESSAGE: 'Try saying repeat.',
+    STATIONS_SHIPS_NOT_FOUND_MESSAGE: "I\'m sorry, I dont know about ",
+    STATIONS_SHIPS_NOT_FOUND_WITH_ITEM_NAME: '%s ',
+    STATIONS_SHIPS_NOT_FOUND_WITHOUT_ITEM_NAME: 'that',
+    STATIONS_SHIPS_NOT_FOUND_REPROMPT: '. What else can I help with?'
+};
 
 const handlers = {
     'LaunchRequest': function () {
@@ -41,8 +41,7 @@ const handlers = {
         this.attributes.repromptSpeech = messages.WELCOME_REPROMT;
         this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
     },
-    'HomeIntent': genericIntentTwoSlots('stations'),
-
+    'StationsIntent': stations_ships(),
     'AMAZON.HelpIntent': function () {
         this.attributes.speechOutput = messages.HELP_MESSAGE;
         this.attributes.repromptSpeech = messages.HELP_REPROMT;
@@ -71,51 +70,53 @@ exports.handler = function (event, context) {
     const alexa = Alexa.handler(event, context);
     alexa.APP_ID = APP_ID;
     // To enable string internationalization (i18n) features, set a resources object.
-    alexa.resources = languageStrings;
+    // alexa.resources = languageStrings;
     alexa.registerHandlers(handlers);
     alexa.execute();
 };
 
-function genericIntentTwoSlots(responseFileName){
+function stations_ships(){
     return function () {
-        const responseName = responseFileName.toUpperCase();
 
-        const shipSlot = this.event.request.intent.slots.Ship;
-        const stationSlot = this.event.request.intent.slots.Station;
 
-        let shipName;
-        let stationName;
-        if (shipSlot && shipSlot.value) {
-            shipName = shipSlot.value.toLowerCase();
-        }
+        const shipSlot = this.event.request.intent.slots.ship;
+        const stationSlot = this.event.request.intent.slots.station;
+        this.emit(':ask', shipSlot.value, stationSlot.value);
 
-        if (stationSlot && stationSlot.value) {
-            stationName = stationSlot.value.toLowerCase();
-        }
 
-        const cardTitle = messages.DISPLAY_CARD_TITLE(messages.SKILL_NAME, shipName);//needs s
-        const responses = messages.responseName;
-        const response = responses[shipName][stationName];
+        // let shipName;
+        // let stationName;
+        // if (shipSlot && shipSlot.value) {
+        //     shipName = shipSlot.value.toLowerCase();
+        // }
 
-        if (response) {
-            this.attributes.speechOutput = response;
-            this.attributes.repromptSpeech = messages[`${responseName}_REPEAT_MESSAGE`];
-            //this.emit(':tellWithCard', response, this.attributes.repromptSpeech, cardTitle, response);
-            this.emit(':tellWithCard', response, cardTitle, response);
-        } else {
-            let speechOutput = messages[`${responseName}_NOT_FOUND_MESSAGE`];
-            const repromptSpeech = messages[`${responseName}_NOT_FOUND_REPROMPT`];
-            if (shipName) {
-                speechOutput += messages[`${responseName}_NOT_FOUND_WITH_ITEM_NAME`](shipName);
-            } else {
-                speechOutput += messages[`${responseName}_NOT_FOUND_WITHOUT_ITEM_NAME`];
-            }
-            speechOutput += repromptSpeech;
+        // if (stationSlot && stationSlot.value) {
+        //     stationName = stationSlot.value.toLowerCase();
+        // }
 
-            this.attributes.speechOutput = speechOutput;
-            this.attributes.repromptSpeech = repromptSpeech;
+        // const cardTitle = messages.DISPLAY_CARD_TITLE(messages.SKILL_NAME, shipName);//needs s
+        // const responses = messages.responseFileName.toUpperCase();
+        // const response = responses[shipName][stationName];
 
-            this.emit(':ask', speechOutput, repromptSpeech);
-        }
+        // if (response) {
+        //     this.attributes.speechOutput = response;
+        //     this.attributes.repromptSpeech = messages[`${responseName}_REPEAT_MESSAGE`];
+        //     //this.emit(':tellWithCard', response, this.attributes.repromptSpeech, cardTitle, response);
+        //     this.emit(':tellWithCard', response, cardTitle, response);
+        // } else {
+        //     let speechOutput = messages[`${responseName}_NOT_FOUND_MESSAGE`];
+        //     const repromptSpeech = messages[`${responseName}_NOT_FOUND_REPROMPT`];
+        //     if (shipName) {
+        //         speechOutput += messages[`${responseName}_NOT_FOUND_WITH_ITEM_NAME`](shipName);
+        //     } else {
+        //         speechOutput += messages[`${responseName}_NOT_FOUND_WITHOUT_ITEM_NAME`];
+        //     }
+        //     speechOutput += repromptSpeech;
+
+        //     this.attributes.speechOutput = speechOutput;
+        //     this.attributes.repromptSpeech = repromptSpeech;
+
+        //     this.emit(':ask', speechOutput, repromptSpeech);
+        // }
     }
 }

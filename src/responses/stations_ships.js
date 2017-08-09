@@ -2,8 +2,8 @@
 /* eslint-disable max-len */
 /* eslint quote-props: ['error', 'consistent']*/
 module.exports = {
-    'STATIONS': {
-      'Sloop': {
+    'RESPONSES': {
+      'sloop': {
         'bilge':'2',
         'bilging':'2',
 
@@ -20,7 +20,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'Cutter': {
+      'cutter': {
         'bilge':'2',
         'bilging':'2',
 
@@ -37,7 +37,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'Dhow': {
+      'dhow': {
         'bilge':'2',
         'bilging':'2',
 
@@ -54,7 +54,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'Fanchuan': {
+      'fanchuan': {
         'bilge':'2',
         'bilging':'2',
 
@@ -71,7 +71,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'Longship': {
+      'longship': {
         'bilge':'2',
         'bilging':'2',
 
@@ -88,7 +88,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'Baghlah': {
+      'baghlah': {
         'bilge':'2',
         'bilging':'2',
 
@@ -105,7 +105,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'Merchant': {
+      'merchant': {
         'bilge':'2',
         'bilging':'2',
 
@@ -122,7 +122,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'Junk': {
+      'junk': {
         'bilge':'2',
         'bilging':'2',
 
@@ -139,7 +139,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'War brig': {
+      'war brig': {
         'bilge':'2',
         'bilging':'2',
 
@@ -156,7 +156,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'Merchant galleon': {
+      'merchant galleon': {
         'bilge':'2',
         'bilging':'2',
 
@@ -173,7 +173,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'Xebec': {
+      'xebec': {
         'bilge':'2',
         'bilging':'2',
 
@@ -190,7 +190,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'War frigate': {
+      'war frigate': {
         'bilge':'2',
         'bilging':'2',
 
@@ -207,7 +207,7 @@ module.exports = {
         'navving':'1',
         'navigation':'1',
       },
-      'Grand frigate': {
+      'grand frigate': {
         'bilge':'2',
         'bilging':'2',
 

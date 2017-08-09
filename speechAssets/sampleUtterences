@@ -5,8 +5,9 @@ PiratesIntent how many players can go on a {ship}
 PiratesIntent how many people can a {ship} hold
 PiratesIntent how many people can go on a {ship}
 
-SailStationsIntent how many {station} stations are on a {ship}
-SailStationsIntent how many {station} stations there are on a {ship}
-SailStationsIntent how many {station} places there are on a {ship}
-
+StationsIntent how many {station} stations are on a {ship}
+StationsIntent how many {station} stations are there on a {ship}
+StationsIntent how many {station} places on a {ship}
+StationsIntent how many {station} places there are on a {ship}
+StationsIntent how many {station} on a {ship}
 
