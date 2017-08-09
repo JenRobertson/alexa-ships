@@ -79,9 +79,13 @@ function stations_ships(){
     return function () {
 
 
-        const shipSlot = this.event.request.intent.slots.ship;
-        const stationSlot = this.event.request.intent.slots.station;
-        this.emit(':ask', shipSlot.value, stationSlot.value);
+        const shipSlot = this.event.request.intent.slots.ship.value.toLowerCase();
+        const stationSlot = this.event.request.intent.slots.station.value.toLowerCase();
+
+
+
+//shipSlot.value + stationSlot.value
+        this.emit(':ask', messages.STATIONS_SHIPS[shipSlot][stationSlot]);
 
 
         // let shipName;
