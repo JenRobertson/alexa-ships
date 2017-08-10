@@ -18,19 +18,14 @@ const APP_ID = 'amzn1.ask.skill.2e4ac15a-094b-4049-ae91-f08d166086b5';
 
 const messages = {
     SKILL_NAME: 'Puzzle Ship',
-    WELCOME_MESSAGE: "Welcome to %s. You can ask a question like, how many bilge stations are there on a sloop?",
+    WELCOME_MESSAGE: "Welcome to Puzzle Ship. You can ask a question like, how many bilge stations are there on a sloop?",
     WELCOME_REPROMT: 'For instructions on what you can say, please say help me.',
-    DISPLAY_CARD_TITLE: '%s  - Info about %s.',
+    DISPLAY_CARD_TITLE: 'Puzzle Ship',
     HELP_MESSAGE: "You can ask questions such as, how many bilge stations are there on a sloop? or, you can say exit...Now, what can I help you with?",
     HELP_REPROMT: "You can say things like, how many bilge stations are there on a sloop?, or you can say exit...Now, what can I help you with?",
     STOP_MESSAGE: 'Goodbye!',
 
     STATIONS_SHIPS: stations_ships_responses_file.RESPONSES,
-    STATIONS_SHIPS_REPEAT_MESSAGE: 'Try saying repeat.',
-    STATIONS_SHIPS_NOT_FOUND_MESSAGE: "I\'m sorry, I dont know about ",
-    STATIONS_SHIPS_NOT_FOUND_WITH_ITEM_NAME: '%s ',
-    STATIONS_SHIPS_NOT_FOUND_WITHOUT_ITEM_NAME: 'that',
-    STATIONS_SHIPS_NOT_FOUND_REPROMPT: '. What else can I help with?'
 };
 
 const handlers = {
@@ -84,37 +79,76 @@ function stations_ships(){
 
 
 
-//shipSlot.value + stationSlot.value
+// shipSlot.value + stationSlot.value
         //this.emit(':ask', messages.STATIONS_SHIPS[shipSlot][stationSlot]);
+        //this.emit(':tellWithCard', messages.STATIONS_SHIPS[shipSlot][stationSlot], 'hello', 'tets');
 
         const shipSlot = this.event.request.intent.slots.ship;
         const stationSlot = this.event.request.intent.slots.station;
 
         let shipName;
         let stationName;
+
         if (shipSlot && shipSlot.value) {
             shipName = shipSlot.value.toLowerCase();
         }
 
         if (stationSlot && stationSlot.value) {
-            stationName = stationSlot.value.toLowerCase();
+            const stationValue = stationSlot.value.toLowerCase();
+
+            if(stationValue.match(/bilg/)){
+                stationName='bilge';
+            }
+            else if(stationValue.match(/carp/)){
+                stationName='carpentry';
+            }
+            else if(stationValue.match(/nav/)){
+                stationName='navigation';
+            }
+            else if(stationValue.match(/gun/)){
+                stationName='gunning';
+            }
+            else if(stationValue.match(/sail/)){
+                stationName='sailing';
+            }
+            else{
+                stationName = 'poo';
+            }
         }
 
-        if (STATIONS_SHIPS[shipName] && STATIONS_SHIPS[shipName][stationName){
+        if (messages.STATIONS_SHIPS[shipName] && messages.STATIONS_SHIPS[shipName][stationName]){
+
             const number = messages.STATIONS_SHIPS[shipName][stationName];
-            const cardTitle = `${messages.SKILL_NAME} - info about ${shipName}`;
+            const cardTitle = `${messages.SKILL_NAME} - info about ${shipName}s`;
             const response = `A ${shipName} has ${number} ${stationName} stations.`;
             this.emit(':tellWithCard', response, cardTitle, response);
         }
 
         else {
+            let response;
+            const repromptSpeech = ' What else can I help you with?';
+            if(!shipName){
+                response = 'I\'m sorry, you didn\'t give me a ship name. ' + messages.HELP_REPROMT;
+            }
+            else if(!stationSlot && shipName){
+                response = 'I\'m sorry, you didn\'t give me a station name.' + repromptSpeech;
+            }
+            else if(!messages.STATIONS_SHIPS[shipName]){
+                response = `There is no such ship as a ${shipName} on PuzzlePirates.` + repromptSpeech;
+            }
+            else if(messages.STATIONS_SHIPS[shipName] && !messages.STATIONS_SHIPS[shipName][stationName]){
+                response = `There is no such station as a ${stationName} on a ${shipName} on PuzzlePirates.` + repromptSpeech;
+            }
+            else{
+                response = messages.HELP_REPROMT;
+            }
 
-            this.emit(':ask', 'I am not sure. What else can I help you with?');
+            this.emit(':askWithCard', response);
 
         }
 
-    
-       
+
+
 
 
 

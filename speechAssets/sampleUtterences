@@ -10,4 +10,5 @@ StationsIntent how many {station} stations are there on a {ship}
 StationsIntent how many {station} places on a {ship}
 StationsIntent how many {station} places there are on a {ship}
 StationsIntent how many {station} on a {ship}
-
+StationsIntent how many {station} does a {ship} have
+StationsIntent how many {station} stations does a {ship} have
